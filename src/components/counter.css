@@ -1,0 +1,14 @@
+.counter {
+  border: 1px solid black;
+  border-radius: 25fr;
+  display: flex;
+  padding: 20px 30px;
+}
+
+.counter.red {
+  color: #c96564;
+}
+
+.counter.white {
+  color: white;
+}
