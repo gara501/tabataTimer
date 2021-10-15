@@ -5,6 +5,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+
+.tabata {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+}
+
 .window {
   background: rgb(63, 63, 63);
   background: linear-gradient(
@@ -12,8 +26,11 @@ body {
     rgba(63, 63, 63, 1) 7%,
     rgba(73, 66, 66, 1) 81%
   );
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .timer {
-  font-size: 3rem;
+  font-size: 5rem;
 }

@@ -1,14 +1,16 @@
 import Counter from "./components/counter";
 
 function App() {
+  const time = new Date();
+  time.setSeconds(time.getSeconds() + 240);
+
   return (
-    <div className="App">
+    <div className="tabata">
       <div className="window">
         <Counter
-          minutes="00"
-          seconds="00"
+          expiryTimestamp={time}
           textColor="red"
-          title="exercise"
+          title="Square Breathing"
         ></Counter>
       </div>
       <div className="control"></div>
