@@ -1,11 +1,16 @@
 :root {
   --square-time: 12s;
   --square-iteration: 5;
+  --wim-time: 3s;
+  --wim-iteration: 30;
+  --wim-blocks: 3;
 }
 
 .counter {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  min-width: 300px;
   padding: 20px 30px;
 }
 
@@ -21,10 +26,43 @@
   color: white;
 }
 
+.wimhof {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 30px;
+}
+
 .title {
   font-size: 1.2rem;
   color: white;
   text-transform: uppercase;
+}
+
+.input-block {
+  margin: 20px 0;
+  width: 100%;
+}
+
+.input-block label {
+  color: white;
+}
+
+input {
+  border: 0;
+  border-bottom: 2px solid #78788c;
+  box-sizing: border-box;
+  background: none;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  outline: none;
+  padding: 10px;
+  resize: none;
+  transition: all 0.3s;
+  width: 100%;
+}
+
+input:focus {
+  border-bottom: 2px solid #a0a0b9;
 }
 
 .figure {
@@ -42,10 +80,30 @@
     "bottom bottom bottom";
   justify-items: baseline;
   column-gap: 20px;
-  height: 200px;
+  height: 300px;
   padding: 5px;
   position: relative;
-  width: 200px;
+  width: 300px;
+}
+
+.circle {
+  align-self: center;
+  background: rgb(2, 6, 2);
+  background: linear-gradient(
+    180deg,
+    rgba(2, 6, 2, 0.4) 23%,
+    rgba(11, 19, 1, 1) 83%
+  );
+  border: 1px solid black;
+  border-radius: 50%;
+  height: 20px;
+  margin: 30px 0;
+  width: 20px;
+}
+
+.instructions {
+  align-self: center;
+  color: white;
 }
 
 .marker-left {
@@ -96,6 +154,13 @@
   animation-timing-function: linear;
 }
 
+.grow {
+  animation-duration: var(--wim-time);
+  animation-name: grow-animation;
+  animation-iteration-count: var(--wim-iteration);
+  animation-timing-function: linear;
+}
+
 .button {
   border-radius: 6px;
 
@@ -108,6 +173,7 @@
   padding: 6px 24px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #1570cd;
+  width: 100%;
 }
 .button:hover {
   background: linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
@@ -134,6 +200,10 @@
   margin: 10px 0;
 }
 
+.options {
+  width: 100%;
+}
+
 @keyframes move-animation {
   0% {
     top: -10px;
@@ -157,35 +227,17 @@
   }
 }
 
-@keyframes move-down {
+@keyframes grow-animation {
   0% {
-    left: 100%;
-    top: 0;
+    transform: scale(1);
+    opacity: 1;
+  }
+  60% {
+    transform: scale(4);
+    opacity: 0.5;
   }
   100% {
-    left: 100%;
-    top: 100%;
-  }
-}
-
-@keyframes move-left {
-  0% {
-    left: 100%;
-    top: 100%;
-  }
-  100% {
-    left: 0;
-    top: 100%;
-  }
-}
-
-@keyframes move-up {
-  0% {
-    left: 0;
-    top: 100%;
-  }
-  100% {
-    left: 0;
-    top: 0;
+    transform: scale(1);
+    opacity: 0.2;
   }
 }
