@@ -1,4 +1,5 @@
 import Counter from "./components/counter";
+import Wim from "./components/wim";
 
 function App() {
   const time = new Date();
@@ -7,11 +8,10 @@ function App() {
   return (
     <div className="tabata">
       <div className="window">
-        <Counter
-          expiryTimestamp={time}
-          textColor="red"
-          title="Square Breathing"
-        ></Counter>
+        <Counter title="Square Breathing"></Counter>
+      </div>
+      <div className="window">
+        <Wim title="Wim Hof Breathing"></Wim>
       </div>
       <div className="control"></div>
     </div>
