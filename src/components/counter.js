@@ -41,7 +41,7 @@ function Counter({ title }) {
   };
 
   return (
-    <div className="counter">
+    <div className="counter breath-wrapper">
       <h4 className="title">{title}</h4>
       <div className="figure">
         <span className="marker-left">Hold</span>
