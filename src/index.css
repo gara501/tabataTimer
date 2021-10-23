@@ -1,3 +1,9 @@
+:root {
+  --bg-color-primary: #f8d5f0;
+  --bg-color-secondary: #b8bdfe;
+  --text-color: rgba(11, 19, 1, 1);
+}
+
 body {
   box-sizing: border-box;
   margin: 0;
@@ -21,11 +27,11 @@ body {
 }
 
 .window {
-  background: rgb(63, 63, 63);
+  background: var(--bg-color-primary);
   background: linear-gradient(
     180deg,
-    rgba(63, 63, 63, 1) 7%,
-    rgba(73, 66, 66, 1) 81%
+    var(--bg-color-primary) 7%,
+    var(--bg-color-secondary) 81%
   );
   display: flex;
   justify-content: center;
@@ -34,4 +40,10 @@ body {
 
 .timer {
   font-size: 5rem;
+}
+
+.title {
+  color: var(--text-color);
+  font-weight: 700;
+  font-size: 1.1rem;
 }

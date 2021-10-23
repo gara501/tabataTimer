@@ -1,5 +1,6 @@
 import Counter from "./components/counter";
 import Wim from "./components/wim";
+import Intro from "./components/intro";
 
 function App() {
   const time = new Date();
@@ -7,6 +8,9 @@ function App() {
 
   return (
     <div className="tabata">
+      <div className="window">
+        <Intro></Intro>
+      </div>
       <div className="window">
         <Counter title="Square Breathing"></Counter>
       </div>

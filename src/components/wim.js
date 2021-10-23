@@ -4,9 +4,17 @@ import { useTimer } from "../components/timer";
 
 function Wim({ title }) {
   const pointerElement = useRef(null);
-  const selectedBlocksElement = useRef(null);
-  let currentBlocks = 3;
   const [time, isActive, toggle, reset] = useTimer(0, false);
+  const [holdtime, holdIsActive, holdToggle, holdReset, holdSeconds] = useTimer(
+    0,
+    false
+  );
+
+  useEffect(() => {
+    if (holdSeconds > 15) {
+      holdReset();
+    }
+  }, [holdSeconds, holdReset]);
 
   useEffect(() => {
     pointerElement.current.addEventListener("animationend", () => {
@@ -25,6 +33,14 @@ function Wim({ title }) {
   const start = () => {
     pointerElement.current.classList.add("grow");
     reset();
+  };
+
+  const stopInhalation = () => {
+    stop();
+    holdToggle();
+    if (holdIsActive && holdSeconds > 15) {
+      holdReset();
+    }
   };
 
   const changeBreaths = (e) => {
@@ -47,8 +63,17 @@ function Wim({ title }) {
       <div ref={pointerElement} className="circle"></div>
       <div className="options">
         <div className="card yellow hold-time first">
-          <p>BreathHold Time</p>
-          <h2 className="hold-time">{time}</h2>
+          <div className="card-section">
+            <p>BreathHold Time</p>
+            <h2 className="hold-time">{time}</h2>
+          </div>
+          <div className="card-section">
+            <p>Inhalation hold time</p>
+            <h2 className="hold-time">{holdtime}</h2>
+            <button className="button stop-hold" onClick={stopInhalation}>
+              Stop BreathHold
+            </button>
+          </div>
         </div>
         <div className="card blue second">
           <div className="input-block">
