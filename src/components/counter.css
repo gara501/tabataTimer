@@ -4,6 +4,12 @@
   --wim-time: 3s;
   --wim-iteration: 30;
   --wim-blocks: 1;
+  --bg-button-primary: #735bf2;
+  --bg-button-secondary: #ddd7ff;
+  --bg-button-terciary: #3fcbff;
+  --bg-input: #f2f2f2;
+  --bg-roundcard: #fff;
+  --roundcard-text-color: rgba(11, 19, 1, 1);
 }
 
 .window {
@@ -40,18 +46,19 @@
   color: white;
 }
 
+.intro {
+  display: flex;
+  gap: 50px;
+}
+
+.method {
+}
+
 .wimhof {
   align-items: center;
   display: flex;
   flex-direction: column;
   padding: 20px 30px;
-}
-
-.title {
-  font-size: 1.2rem;
-  color: white;
-  text-transform: uppercase;
-  text-align: center;
 }
 
 .input-block {
@@ -64,6 +71,21 @@
 
 .input-block label {
   color: white;
+}
+
+.roundcard-wrapper {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  display: flex;
+  padding: 10px;
+  position: relative;
+}
+
+.roundcard-content {
+  background-color: var(--bg-roundcard);
+  border-radius: 12px;
+  color: var(--roundcard-text-color);
+  padding: 20px;
 }
 
 .card {
@@ -226,13 +248,11 @@ input:focus {
   padding: 6px 24px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #1570cd;
+  text-transform: uppercase;
   max-width: 300px;
   width: 100%;
 }
-.button:hover {
-  background: linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
-  background-color: #1e62d0;
-}
+
 .button:active {
   position: relative;
   top: 1px;
@@ -246,12 +266,35 @@ input:focus {
   margin: 10px 0;
 }
 
+.button.start:hover {
+  background: linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
+  background-color: #1e62d0;
+}
+
 .button.stop {
   box-shadow: inset 0px 1px 0px 0px #f35e43;
   background: linear-gradient(to bottom, #ca2c11 5%, #ee2e0c 100%);
   background-color: #ca2c11;
   border: 1px solid #f34324;
   margin: 10px 0;
+}
+
+.button.stop:hover {
+  background: linear-gradient(to bottom, #e24024 5%, #e73e21 100%);
+  background-color: #d1381d;
+}
+
+.button.stop-hold {
+  box-shadow: inset 0px 1px 0px 0px #4a4c69;
+  background-color: #37384c;
+  border: 1px solid #37384c;
+  color: white;
+  margin: 10px 0;
+}
+
+.button.stop-hold:hover {
+  background: linear-gradient(to bottom, #44455c 5%, #4a4b68 100%);
+  background-color: #51526d;
 }
 
 .switch-button {

@@ -53,5 +53,5 @@ export const useTimer = (initialTime = 0, active = false) => {
     return () => clearInterval(interval);
   }, [isActive, seconds]);
 
-  return [time, isActive, toggle, reset];
+  return [time, isActive, toggle, reset, seconds];
 };
