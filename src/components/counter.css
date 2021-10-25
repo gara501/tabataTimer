@@ -51,9 +51,6 @@
   gap: 50px;
 }
 
-.method {
-}
-
 .wimhof {
   align-items: center;
   display: flex;
@@ -79,6 +76,7 @@
   display: flex;
   padding: 10px;
   position: relative;
+  max-width: 320px;
 }
 
 .roundcard-content {
@@ -86,6 +84,14 @@
   border-radius: 12px;
   color: var(--roundcard-text-color);
   padding: 20px;
+}
+
+.section {
+  border-top: 1px solid rgb(203, 195, 195);
+  font-size: .8rem;
+  line-height: 1.3rem;
+  padding: 10px 0;
+  text-transform: uppercase;
 }
 
 .card {
@@ -412,5 +418,11 @@ input:focus {
   100% {
     transform: scale(1);
     opacity: 0.2;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .intro {
+    flex-direction: column;
   }
 }
