@@ -5,15 +5,17 @@ export const useTimer = (initialTime = 0, active = false) => {
   const [isActive, setIsActive] = useState(active);
   const [time, setTime] = useState("00:00");
 
-  function toggle() {
-    setIsActive(!isActive);
-  }
+  const startTimer = () => {
+    setSeconds(0);
+    setIsActive(true);
+    setTime("00:00");
+  };
 
-  function reset() {
+  const resetTimer = () => {
     setSeconds(0);
     setIsActive(false);
     setTime("00:00");
-  }
+  };
 
   function format(seconds) {
     let minutes = "";
@@ -24,8 +26,11 @@ export const useTimer = (initialTime = 0, active = false) => {
     } else if (seconds > 9 && seconds <= 60) {
       return `00:${seconds}`;
     } else if (seconds > 60) {
-      newSeconds = formatDigits(seconds - Math.round(seconds / 60) * 60);
-      minutes = formatDigits(Math.round(seconds / 60));
+      console.log(seconds);
+      const secondsInMinute = seconds - Math.trunc(seconds / 60) * 60;
+      console.log(secondsInMinute);
+      newSeconds = formatDigits(secondsInMinute);
+      minutes = formatDigits(Math.trunc(seconds / 60));
       return `${minutes}:${newSeconds}`;
     }
   }
@@ -45,7 +50,6 @@ export const useTimer = (initialTime = 0, active = false) => {
         setSeconds((seconds) => seconds + 1);
         const newTime = format(seconds);
         setTime(newTime);
-        console.log("TIMER", time);
       }, 1000);
     } else if (!isActive && seconds !== 0) {
       clearInterval(interval);
@@ -53,5 +57,5 @@ export const useTimer = (initialTime = 0, active = false) => {
     return () => clearInterval(interval);
   }, [isActive, seconds]);
 
-  return [time, isActive, toggle, reset, seconds];
+  return [time, isActive, startTimer, resetTimer, seconds];
 };

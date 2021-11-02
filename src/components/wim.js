@@ -1,126 +1,167 @@
 import "./counter.css";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useTimer } from "../components/timer";
+import { gsap } from "gsap";
+
+const states = {
+  ACTIVE: "active",
+  HOLD: "hold",
+  FULLHOLD: "fullhold",
+};
 
 function Wim({ title }) {
+  let timeline = gsap.timeline();
   const pointerElement = useRef(null);
-  const [time, isActive, toggle, reset] = useTimer(0, false);
-  const [holdtime, holdIsActive, holdToggle, holdReset, holdSeconds] = useTimer(
+  const counterElement = useRef(null);
+  const [breathTime, breathActive, breathStart, breathStop] = useTimer(
     0,
     false
   );
+  const [holdTime, holdIsActive, holdStart, holdStop, holdSeconds] = useTimer(
+    0,
+    false
+  );
+  const [seconds, setSeconds] = useState(3);
+  const [sets, setSets] = useState(30);
+  const [currentState, setCurrentState] = useState(states.ACTIVE);
+  let labelState = "Ready";
 
   useEffect(() => {
     if (holdSeconds > 15) {
-      holdReset();
+      holdStop();
+      setCurrentState(states.ACTIVE);
     }
-  }, [holdSeconds, holdReset]);
+  }, [holdSeconds, holdStop]);
 
-  useEffect(() => {
-    pointerElement.current.addEventListener("animationend", () => {
-      stop();
-
-      // Activate Timer
-      toggle();
+  const animate = (sets, time) => {
+    timeline.repeat(sets - 1);
+    timeline.to(pointerElement.current, {
+      scale: 12,
+      duration: time * 0.52,
+      background: "#1c71da",
+      opacity: 0.6,
+      onStart: () => {
+        labelState = "Inhale";
+        counterElement.current.innerText = labelState;
+      },
     });
-  }, []);
+    timeline.to(
+      pointerElement.current,
+      {
+        scale: 1,
+        duration: time * 0.35,
+        background: "#eb5223",
+        opacity: 1,
+        onStart: () => {
+          labelState = "Exhale";
+          counterElement.current.innerText = labelState;
+        },
+      },
+      ">"
+    );
+    timeline.eventCallback("onComplete", () => {
+      breathStart();
+      setCurrentState(states.HOLD);
+    });
+  };
 
   const stop = () => {
-    pointerElement.current.classList.remove("grow");
-    reset();
+    timeline.pause();
+    timeline.tweenFromTo(pointerElement.current, pointerElement.current);
+    timeline.kill();
+    setCurrentState(states.ACTIVE);
+    breathStop();
+    holdStop();
   };
 
   const start = () => {
-    pointerElement.current.classList.add("grow");
-    reset();
+    animate(sets, seconds);
+    timeline.restart();
   };
 
-  const stopInhalation = () => {
-    stop();
-    holdToggle();
-    if (holdIsActive && holdSeconds > 15) {
-      holdReset();
-    }
+  const stopBreathHold = () => {
+    breathStop();
+    holdStart();
+    setCurrentState(states.FULLHOLD);
   };
 
   const changeBreaths = (e) => {
-    document.documentElement.style.setProperty(
-      "--wim-iteration",
-      e.target.value
-    );
-    stop();
+    setSets(e.target.value);
   };
 
   const changeSpeed = (e) => {
-    const speedTime = e.target.checked ? 2 : 3;
-    document.documentElement.style.setProperty("--wim-time", speedTime + "s");
-    stop();
+    const speedTime = e.target.checked ? 3 : 4;
+    setSeconds(speedTime);
   };
 
   return (
-    <div className="wimhof breath-wrapper">
-      <h4 className="title">{title}</h4>
-      <div ref={pointerElement} className="circle"></div>
+    <div className="wimhof breath-wrapper m-section">
+      <h3 className="m-b-section">{title}</h3>
       <div className="options">
-        <div className="card yellow hold-time first">
-          <div className="card-section">
-            <p>BreathHold Time</p>
-            <h2 className="hold-time">{time}</h2>
-          </div>
-          <div className="card-section">
-            <p>Inhalation hold time</p>
-            <h2 className="hold-time">{holdtime}</h2>
-            <button className="button stop-hold" onClick={stopInhalation}>
-              Stop BreathHold
-            </button>
-          </div>
-        </div>
-        <div className="card blue second">
-          <div className="input-block">
-            <label htmlFor="sets">Breaths</label>
-            <input
-              id="sets"
-              type="number"
-              name="sets"
-              onChange={changeBreaths}
-              placeholder="30 breaths"
-            ></input>
-          </div>
-          <div className="input-block">
-            <label htmlFor="speed">Breathing Speed</label>
+        <div className="card blue second card-wim">
+          <div className="card-wim-content">
+            {currentState === states.ACTIVE && (
+              <div ref={pointerElement} className="circle">
+                <span className="counter" ref={counterElement}>
+                  {labelState}
+                </span>
+              </div>
+            )}
+            {currentState === states.HOLD && (
+              <>
+                <div className="card-section">
+                  <p>BreathHold Time</p>
+                  <h4 className="hold-time m-b-text">{breathTime}</h4>
+                </div>
+                <button className="btn secondary" onClick={stopBreathHold}>
+                  Stop BreathHold
+                </button>
+              </>
+            )}
+            {currentState === states.FULLHOLD && (
+              <div className="card-section">
+                <p>Full Inhale and Hold!</p>
+                <h4 className="hold-time m-b-text">{holdTime}</h4>
+              </div>
+            )}
+            <div className="input-block">
+              <label htmlFor="sets">Breaths before retention</label>
+              <input
+                id="sets"
+                type="number"
+                name="sets"
+                onChange={changeBreaths}
+                placeholder="30 breaths"
+              ></input>
+            </div>
+            <div className="input-block">
+              <label htmlFor="speed">Breathing Speed</label>
 
-            <div className="speed-block">
-              <div class="switch-button">
-                <input
-                  class="switch-button-checkbox"
-                  onChange={changeSpeed}
-                  type="checkbox"
-                  data-value="2"
-                ></input>
-                <label class="switch-button-label" for="">
-                  <span class="switch-button-label-span">Normal</span>
-                </label>
+              <div className="speed-block">
+                <div class="switch-button">
+                  <input
+                    className="switch-button-checkbox"
+                    onChange={changeSpeed}
+                    type="checkbox"
+                    data-value="2"
+                  ></input>
+                  <label className="switch-button-label" htmlFor="">
+                    <span className="switch-button-label-span">Normal</span>
+                  </label>
+                </div>
               </div>
             </div>
-          </div>
-          <div className=" instructions">
-            <h4>Instructions</h4>
-            <p>
-              Put the number or breaths that you will do, after finish, the
-              counter will start, hold your breath after the last exhalation as
-              much as you can, once you can't continue, push stop breathHold
-              button, full inhale and maintain 15 seconds. Repeat many times as
-              you want. Is recommended to start with 3 blocks.
-            </p>
+            <div className="btn-container">
+              <button className="btn secondary" onClick={start}>
+                Start
+              </button>
+              <button className="btn terciary" onClick={stop}>
+                Stop
+              </button>
+            </div>
           </div>
         </div>
       </div>
-      <button className="button start" onClick={start}>
-        Start
-      </button>
-      <button className="button stop" onClick={stop}>
-        Stop
-      </button>
     </div>
   );
 }
