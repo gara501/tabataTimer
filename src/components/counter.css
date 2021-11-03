@@ -12,15 +12,6 @@
   --roundcard-text-color: rgba(11, 19, 1, 1);
 }
 
-.window {
-  align-items: center;
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-  text-align: center;
-  width: 100%;
-}
-
 .breath-wrapper {
   max-width: 1200px;
   width: 100%;
@@ -67,36 +58,36 @@
 }
 
 .input-block label {
+  color: black;
+}
+
+.card.blue .input-block label {
   color: white;
 }
 
-.roundcard-wrapper {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 12px;
-  display: flex;
-  padding: 10px;
-  position: relative;
-  max-width: 320px;
+.card.blue input {
+  color: white;
 }
 
-.roundcard-content {
-  background-color: var(--bg-roundcard);
-  border-radius: 12px;
-  color: var(--roundcard-text-color);
+.card-wim {
+  background: url('../images/ice.jpg') no-repeat;
+  background-size: cover;
+}
+
+.card-wim-content {
+  background-color: #363c51;
+  border-radius: 1rem;
+  max-width: 400px;
   padding: 20px;
 }
 
-.section {
-  border-top: 1px solid rgb(203, 195, 195);
-  font-size: .8rem;
-  line-height: 1.3rem;
-  padding: 10px 0;
-  text-transform: uppercase;
-}
-
 .card {
+  align-items: center;
   border-radius: 1rem;
   color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 30px 0;
 }
 
@@ -131,7 +122,7 @@ input {
   border-bottom: 2px solid #78788c;
   box-sizing: border-box;
   background: none;
-  color: white;
+  color: black;
   font-family: "Oxygen", sans-serif;
   font-size: 16px;
   outline: none;
@@ -147,13 +138,10 @@ input:focus {
 }
 
 .figure {
-  background: rgb(2, 6, 2);
-  background: linear-gradient(
-    180deg,
-    rgba(2, 6, 2, 0.4) 23%,
-    rgba(11, 19, 1, 1) 83%
-  );
-  border: 1px solid black;
+  background: white;
+  background: url('../images/breathing.jpg') no-repeat;
+  background-size: cover;
+  border: 3px solid black;
   display: grid;
   grid-template-areas:
     "top top top"
@@ -168,13 +156,23 @@ input:focus {
 }
 
 .circle {
+  align-items: center;
   align-self: center;
-  background: rgb(255, 255, 255);
+  background: #8e9fc3;
+  display: flex;
   border-radius: 50%;
   height: 20px;
-  margin: 100px 0;
+  justify-self: center;
+  justify-content: center;
+  margin: 70px auto;
+  padding: 5px;
   width: 20px;
   z-index: 20;
+}
+
+.circle span {
+  color:white;
+  font-weight: 400;
 }
 
 .instructions {
@@ -211,7 +209,7 @@ input:focus {
 }
 
 .figure span {
-  color: white;
+  color: black;
 }
 
 .pointer {
@@ -221,12 +219,12 @@ input:focus {
     rgba(237, 157, 138, 1) 3%,
     rgba(232, 73, 73, 1) 98%
   );
-  height: 10px;
-  left: -10px;
+  height: 30px;
+  left: -5%;
   position: absolute;
   border-radius: 50%;
-  top: -10px;
-  width: 10px;
+  top: -5%;
+  width: 30px;
 }
 
 .move {
@@ -243,66 +241,6 @@ input:focus {
   animation-timing-function: linear;
 }
 
-.button {
-  border-radius: 6px;
-  display: inline-block;
-  cursor: pointer;
-  color: #ffffff;
-  font-family: Arial;
-  font-size: 15px;
-  font-weight: bold;
-  padding: 6px 24px;
-  text-decoration: none;
-  text-shadow: 0px 1px 0px #1570cd;
-  text-transform: uppercase;
-  max-width: 300px;
-  width: 100%;
-}
-
-.button:active {
-  position: relative;
-  top: 1px;
-}
-
-.button.start {
-  box-shadow: inset 0px 1px 0px 0px #97c4fe;
-  background: linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
-  background-color: #3d94f6;
-  border: 1px solid #337fed;
-  margin: 10px 0;
-}
-
-.button.start:hover {
-  background: linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
-  background-color: #1e62d0;
-}
-
-.button.stop {
-  box-shadow: inset 0px 1px 0px 0px #f35e43;
-  background: linear-gradient(to bottom, #ca2c11 5%, #ee2e0c 100%);
-  background-color: #ca2c11;
-  border: 1px solid #f34324;
-  margin: 10px 0;
-}
-
-.button.stop:hover {
-  background: linear-gradient(to bottom, #e24024 5%, #e73e21 100%);
-  background-color: #d1381d;
-}
-
-.button.stop-hold {
-  box-shadow: inset 0px 1px 0px 0px #4a4c69;
-  background-color: #37384c;
-  border: 1px solid #37384c;
-  color: white;
-  margin: 10px 0;
-}
-
-.button.stop-hold:hover {
-  background: linear-gradient(to bottom, #44455c 5%, #4a4b68 100%);
-  background-color: #51526d;
-}
-
 .switch-button {
   background: rgba(255, 255, 255, 0.56);
   border-radius: 30px;
@@ -312,10 +250,12 @@ input:focus {
   font-size: 16px;
   letter-spacing: 1px;
   color: white;
+  font-weight: 400;
   position: relative;
   padding-right: 120px;
   position: relative;
 }
+
 .switch-button:before {
   content: "Fast";
   position: absolute;
@@ -329,6 +269,7 @@ input:focus {
   z-index: 3;
   pointer-events: none;
 }
+
 .switch-button-checkbox {
   cursor: pointer;
   position: absolute;
@@ -340,20 +281,24 @@ input:focus {
   opacity: 0;
   z-index: 2;
 }
+
 .switch-button-checkbox:checked + .switch-button-label:before {
   transform: translateX(120px);
   transition: transform 300ms linear;
 }
+
 .switch-button-checkbox + .switch-button-label {
+  color: white;
   position: relative;
   padding: 10px 0;
   display: block;
   user-select: none;
   pointer-events: none;
 }
+
 .switch-button-checkbox + .switch-button-label:before {
   content: "";
-  background: rgb(44, 121, 184);
+  background: #1c71da;
   height: 100%;
   width: 100%;
   position: absolute;
@@ -383,36 +328,13 @@ input:focus {
   margin: 10px 0;
 }
 
-@keyframes move-animation {
-  0% {
-    top: -10px;
-    left: -10px;
-  }
-  25% {
-    top: -10px;
-    left: 100%;
-  }
-  50% {
-    top: 100%;
-    left: 100%;
-  }
-  75% {
-    top: 100%;
-    left: -10px;
-  }
-  100% {
-    top: -10px;
-    left: -10px;
-  }
-}
-
 @keyframes grow-animation {
   0% {
     transform: scale(1);
     opacity: 1;
   }
   60% {
-    transform: scale(20);
+    transform: scale(12);
     opacity: 0.8;
   }
   100% {

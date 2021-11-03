@@ -10,7 +10,7 @@ function Intro() {
     <div className="intro">
       <div className="roundcard-wrapper">
         <div className="roundcard-content">
-          <h6>Square Breathing</h6>
+          <h2>Square Breathing</h2>
           <Badge message="relaxation" type={badgeType.RELAXATION}></Badge>
           <p className="section">
             Square breathing is a type of breathwork that can shift your energy,

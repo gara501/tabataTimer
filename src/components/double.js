@@ -1,91 +1,90 @@
-import "./counter.css";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { gsap } from "gsap";
+import "./double.css";
 
-function Counter({ title }) {
+function Double({ title }) {
+  const [time, setTime] = useState(4);
+  const [sets, setSets] = useState(1);
   const pointerElement = useRef(null);
   const setsElement = useRef(null);
   const timeElement = useRef(null);
+  const labelElement = useRef(null);
   let timeline = gsap.timeline();
 
   const animate = (sets, time) => {
+    console.log("TIME", time);
     timeline.repeat(sets);
     timeline.to(pointerElement.current, {
-      left: "95%",
-      scale: 2,
-      duration: time / 4,
+      height: "100%",
+      duration: time,
+      ease: "linear",
+      onStart: () => {
+        labelElement.current.innerText = "Inhale";
+      },
     });
     timeline.to(
       pointerElement.current,
       {
-        left: "95%",
-        top: "95%",
-        scale: 2,
-        duration: time / 4,
-      },
-      ">"
-    );
-    timeline.to(
-      pointerElement.current,
-      {
-        left: "-5%",
-        top: "95%",
-        scale: 1,
-        duration: time / 4,
-      },
-      ">"
-    );
-    timeline.to(
-      pointerElement.current,
-      {
-        top: "-5%",
-        left: "-5%",
-        scale: 1,
-        duration: time / 4,
+        height: 0,
+        duration: time * 2,
+        ease: "linear",
+        onStart: () => {
+          labelElement.current.innerText = "Exhale";
+        },
       },
       ">"
     );
   };
 
+  const changeSets = (e) => {
+    setSets(e.currentTarget.value);
+  };
+
+  const changeTime = (e) => {
+    setTime(e.currentTarget.value);
+  };
+
   const start = () => {
-    animate(setsElement.current.value - 1, timeElement.current.value * 4);
+    animate(sets - 1, time);
     timeline.restart();
   };
 
   const stop = () => {
     timeline.tweenFromTo(pointerElement.current, pointerElement.current);
     timeline.pause();
+    labelElement.current.innerText = "Ready";
   };
 
   return (
     <div className="counter breath-wrapper m-section">
       <h3 className="m-b-section">{title}</h3>
-      <div className="figure">
-        <span className="marker-left">Hold</span>
-        <span className="marker-top">Inhale</span>
-        <span className="marker-right">Hold</span>
-        <span className="marker-bottom">Exhale</span>
-        <div ref={pointerElement} className="pointer"></div>
+      <div className="double-box">
+        <div ref={pointerElement} className="double-bar"></div>
+        <span className="breath-label" ref={labelElement}>
+          Ready
+        </span>
       </div>
       <div className="options">
         <div className="input-block">
-          <label htmlFor="sets">Breaths</label>
+          <label htmlFor="sets">Sets</label>
           <input
             id="sets"
             type="number"
             name="sets"
             placeholder="Set number"
             ref={setsElement}
+            onChange={changeSets}
           ></input>
         </div>
         <div className="input-block">
-          <label htmlFor="time">Breathing Speed</label>
+          <label htmlFor="time">Breathing Time</label>
           <input
             id="time"
             type="number"
             name="time"
             placeholder="Set seconds"
             ref={timeElement}
+            onChange={changeTime}
           ></input>
         </div>
       </div>
@@ -101,4 +100,4 @@ function Counter({ title }) {
   );
 }
 
-export default Counter;
+export default Double;

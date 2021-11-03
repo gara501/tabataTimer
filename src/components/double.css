@@ -1,0 +1,26 @@
+.double-box {
+    align-items: flex-end;
+    border: 2px solid black;
+    display: flex;
+    height: 300px;
+    width: 100%;
+    max-width: 300px;
+    position: relative;
+}
+
+.double-bar {
+    background: #c96564;
+    bottom: 0;
+    height: 0;
+    left: 0;
+    width: 300px;
+}
+
+.breath-label {
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    font-weight: 400;
+    font-size: 2rem;
+    transform: translate(-50%, -50%);
+}
