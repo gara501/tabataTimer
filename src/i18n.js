@@ -175,12 +175,12 @@ const resources = {
         "Métodos de respiración para curar tu cuerpo, aclarar tu mente y relajarte.",
       intro: {
         title: "Sobre la respiración",
-        p1: `¿Crees que sabes respirar bien? Piensa otra vez. ¿Estás usando tus músculos primarios o secundarios para respirar? Estas
-				          expandiendo tu pecho o tu estómago?. La respiración de pecho es relativamente
-				          superficial y no utiliza toda la capacidad de los pulmones.
-				          La respiración diafragmática es un ejercicio de respiración profunda que
-				          ensancha el diafragma y aumenta la eficiencia de los pulmones. I
-				          Recomiendo leer este increíble artículo sobre la`,
+        p1: `¿Crees que sabes respirar bien? Piénsalo de nuevo. ¿Estás usando tus músculos primarios o secundarios para respirar? Estás
+				expandiendo tu pecho o tu estómago?. La respiración de pecho es relativamente
+				superficial y no utiliza toda la capacidad de los pulmones.
+				La respiración diafragmática es un ejercicio de respiración profunda que
+				ensancha el diafragma y aumenta la eficiencia de los pulmones.
+				Recomiendo leer este increíble artículo sobre la`,
         p2: "anatomía de la respiración.",
         p3: "La siguiente imagen ilustra el proceso de la respiración:",
         title2: "Patrones de respiración",
@@ -191,11 +191,11 @@ const resources = {
 				la respiración vertical es que no nos permite expulsar todo el aire
 				completamente, esto priva a nuestro cuerpo del oxígeno que necesita y mantiene a nuestros
 				pulmones con aire residual.`,
-        imgfrom: "Imágen extraída de:",
+        imgfrom: "Imagen extraída de:",
         p5: `En lugar de respirar con los hombros y el pecho, una respiración correcta
 				usa los músculos del diafragma. Y cuando respiras con tu diafragma, el estómago
 				se mueve hacia adentro y hacia afuera, mientras que el pecho y
-				los hombros se quedan quietos. Esta forma de respirar se llama respiración diafragmática.
+				los hombros se mantienen quietos. Esta forma de respirar se llama respiración diafragmática.
 				`,
         p6: `El diafragma es un músculo grande que se encuentra en la base de los pulmones.
 				Cuando una persona inhala, su diafragma se contrae y se mueve hacia abajo,
@@ -223,23 +223,23 @@ const resources = {
 					debajo de las rodillas. Las almohadas ayudarán a mantener el cuerpo en un
 					posición cómoda.`,
           li2: `Ponga una mano en medio de la parte alta del pecho.`,
-          li3: `Ponga la otra mano sobre el estomago, justo encima de las costillas sobre el diagragma.`,
-          li4: `Inhale, respire por la nariz llevando el aire al estomago, el estomago debe empujar
-					la mano mientras el pecho se mantiene inmovil.`,
+          li3: `Ponga la otra mano sobre el estómago, justo encima de las costillas sobre el diafragma.`,
+          li4: `Inhale, respire por la nariz llevando el aire al estómago, el estómago debe empujar
+					la mano mientras el pecho se mantiene inmóvil.`,
           li5: `Exhale, endurezca los músculos del estómago mientras expulsa el aire a través de los labios ligeramente
-					apretados, de nuevo, el pecho debe mantenerse inmovil.`,
+					apretados, de nuevo, el pecho debe mantenerse inmóvil.`,
         },
         p8: `Lo ideal es practicar este ejercicio por 5 a 10 minutos, de 3 a 4 veces al día.`,
         p9: `Una vez se sienta confortable con este patrón de respiración, podría empezar a practicar este ejercicio sentado o de píe.
 				Cuando se practica la respiración diafragmática en estas posiciones es importante mantener los hombros, cabeza y cuello relajados.`,
-        p10: `La respiracion diafragmatica, ayuda a una persona a activar su diafragma completamente al respirar, esto genera una gran cantidad
+        p10: `La respiración diafragmática, ayuda a una persona a activar su diafragma completamente al respirar, esto genera una gran cantidad
 				de beneficios como:`,
         list2: {
           li1: "Fortalecimiento del diafragma",
           li2: "Mejora en la estabilidad de los músculos del core",
           li3: "Mejora en la estabilidad de los músculos del core",
           li4: "Reduce el ritmo de respiración",
-          li5: "Reduce el ritmo cardiáco y la presión arterial",
+          li5: "Reduce el ritmo cardíaco y la presión arterial",
           li6: "Promueve la relajación",
         },
         title5: "Riesgos",
@@ -251,16 +251,16 @@ const resources = {
       },
       square: {
         title: "Respiración cuadrada",
-        p1: `La respiración cuadrada, es un tipo de respiración que puede cambiar tu energía, conectar mas profundamente
+        p1: `La respiración cuadrada, es un tipo de respiración que puede cambiar tu energía, conectar más profundamente
 				con tu cuerpo, calmar tu sistema nervioso y reducir el estrés en tu cuerpo. También es conocida como respiración en caja, 
-				respiración 4x4, o patron de respiración de 4.`,
+				respiración 4x4, o patrón de respiración de 4.`,
         title2: "Como realizar la respiración cuadrada.",
         list1: {
           li1: "Empiece lentamente exhalando todo el aire de sus pulmones.",
           li2: "Entonces, gentilmente, inhale a través de su nariz, contando 4 segundos.",
           li3: "Luego, sostenga por 4 segundos el aire.",
           li4: "Luego, gentilmente, exhale contando hasta 4.",
-          li5: "Al final, sin aire, sostenga ese estádo por 4 segundos mas.",
+          li5: "Al final, sin aire, sostenga ese estado por 4 segundos más.",
         },
         p2: "En el simulador podrá cambiar el número de segundos a su gusto, lo recomendado según el método, es 4 segundos.",
         simlb1: "Respiraciones",
@@ -270,14 +270,14 @@ const resources = {
       },
       double: {
         title: "Respiración 2:1",
-        p1: `La respiración 2-a-1 ayuda a mejorar, coordinar y estabilizar la actividad del cerebro y del sistema nervioso
-				Si se repetie varias veces, este ejercicio dispara la respuesta de relajación y calma, por ende, activa el sistema parasimpático.`,
+        p1: `La respiración 2-a-1 ayuda a mejorar, coordinar y estabilizar la actividad del cerebro y del sistema nervioso,
+				Si se repite varias veces, este ejercicio dispara la respuesta de relajación y calma, por ende, activa el sistema parasimpático.`,
         title2: "Como realizar la respiración 2:1",
         list: {
-          li1: "Sientese comodamente, relaje los hombros, cuello y mandíbula.",
+          li1: "Siéntese cómodamente, relaje los hombros, cuello y mandíbula.",
           li2: "Cierre los ojos, estire su columna y exhale completamente.",
           li3: "Con un conteo mental moderado, inhale silenciosamente a través de la nariz e infle su abdomen (diafragmática).",
-          li4: "Exhale a traves de sus labios manteniendolos ligeramente apretados, de esta forma podra expulsar el aire lentamente, ahora realice un conteo del doble del tiempo que le tomó inhalar.",
+          li4: "Exhale a través de sus labios manteniéndolos ligeramente apretados, de esta forma podrá expulsar el aire lentamente, ahora efectúe un conteo del doble del tiempo que le tomó inhalar.",
           li5: "Repita.",
         },
         p2: `Continúe durante 5-10 ciclos o varios minutos, restablezca la respiración normal si se siente mareo. Si algún pensamiento se entromete mientras respira, déjelo ir sin juzgarlo y vuelva a concentrarse serenamente en su respiración y conteo. Muchos practicantes de yoga de respiración 2 a 1 recomiendan exhalar por la nariz en lugar de los labios fruncidos; te animo a que experimentes haciéndolo, especialmente si eres experto en el control de la respiración.`,
@@ -304,7 +304,7 @@ const resources = {
           li6: "Una vez que sienta la necesidad de respirar, respire profundamente y aguante 15 segundos.",
           li7: "Repite el número de series que quieras.",
         },
-        p5: `Tenga cuidado, nunca haga los ejercicios en el agua o mientras conduce o realiza algúna actividad que requiera toda su atención,
+        p5: `Tenga cuidado, nunca haga los ejercicios en el agua o mientras conduce o realiza alguna actividad que requiera toda su atención,
 						inicie poco a poco, su cuerpo necesita tiempo para adaptarse.`,
         sim1: "Respiraciones antes de retener",
         sim2: "Velocidad de respiración",
