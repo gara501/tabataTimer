@@ -14,7 +14,13 @@ function Intro() {
     <div className="intro">
       <div className="block-section dark">
         <div className="wrapper">
-          <div className="title-section">
+          <div className="disclaimer">
+            <div className="title-section">
+              <h2 className="m-b-text">Disclaimer</h2>
+            </div>
+            <p>{t("disclaimer")}</p>
+          </div>
+          <div className="title-section m-t-section">
             <img src={m3} alt="" />
             <h2 className="m-b-text">{t("intro.title")}</h2>
           </div>

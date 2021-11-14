@@ -10,6 +10,7 @@ const resources = {
     translation: {
       logo: "Breath",
       m1: "Square",
+      disclaimer: `The information provided is not intended to be a substitute for professional medical advice, diagnosis or treatment.  Never disregard professional medical advice, or delay in seeking it, because of something you have read on this website.  Never rely on information on this website in place of seeking professional medical advice. I am not a doctor.  The information I provide is based on my personal experience.`,
       heading:
         "Breathing methods to heal your body, clear your mind and relax.",
       intro: {
@@ -170,6 +171,7 @@ const resources = {
   es: {
     translation: {
       logo: "Respira",
+      disclaimer: `La información proporcionada no pretende sustituir el asesoramiento, diagnóstico o tratamiento médico profesional. Nunca ignore el consejo médico profesional, ni demore en buscarlo, debido a algo que haya leído en este sitio web. Nunca confíe en la información de este sitio web en lugar de buscar asesoramiento médico profesional. Yo no soy médico. La información que proporciono se basa en mi experiencia personal.`,
       m1: "Cuadrada",
       heading:
         "Métodos de respiración para curar tu cuerpo, aclarar tu mente y relajarte.",
