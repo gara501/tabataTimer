@@ -77,6 +77,11 @@ a {
   padding: 20px;
 }
 
+.lang-selector {
+  display: flex;
+  margin-left: 20px;
+}
+
 .intro {
   display: flex;
   flex-direction: column;

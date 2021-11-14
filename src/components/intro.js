@@ -8,7 +8,7 @@ import horizontal from "../images/horizontal.jpg";
 import "./counter.css";
 
 function Intro() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <div className="intro">
