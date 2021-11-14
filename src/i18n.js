@@ -89,21 +89,22 @@ const resources = {
           li5: "reducing oxygen demand",
           li6: "promoting relaxation",
         },
-      },
-      title5: "Risks",
-      p11: `Diaphragmatic breathing is not always useful as a standalone
+        title5: "Risks",
+        p11: `Diaphragmatic breathing is not always useful as a standalone
 			treatment. People should not rely on diaphragmatic breathing alone
 			to treat conditions such as anxiety, asthma, or COPD.`,
-      p12: `In fact, diaphragmatic breathing could actually worsen anxiety
+        p12: `In fact, diaphragmatic breathing could actually worsen anxiety
 			symptoms if a person feels that the treatment is not working. A
 			person who has anxiety can practice diaphragmatic breathing, but
 			they should also ask their doctor about effective anxiety
 			treatments.`,
-      p13: `People who have respiratory conditions such as asthma or COPD should
+        p13: `People who have respiratory conditions such as asthma or COPD should
 			be careful when first practicing diaphragmatic breathing. It may
 			initially cause labored breathing and increased fatigue. People will
 			need to build up the practice gradually in order to see the
 			benefits.`,
+      },
+
       square: {
         title: "square breathing",
         p1: `Square breathing is a type of breathwork that can shift your energy, connect you more deeply with your body, calm your nervous system, and decrease stress in your body. It is also referred to as box breathing, 4×4 breathing, and 4-part breath.`,
