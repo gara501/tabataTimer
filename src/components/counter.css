@@ -10,6 +10,8 @@
   --bg-input: #f2f2f2;
   --bg-roundcard: #fff;
   --roundcard-text-color: rgba(11, 19, 1, 1);
+  --light-blue: #04cbe1;
+  --dark-blue: #01283c;
 }
 
 .breath-wrapper {
@@ -58,7 +60,7 @@
 }
 
 .input-block label {
-  color: black;
+  color: var(--dark-blue);
 }
 
 .card.blue .input-block label {
@@ -70,12 +72,12 @@
 }
 
 .card-wim {
-  background: url('../images/ice.jpg') no-repeat;
+  background: url("../images/ice.jpg") no-repeat;
   background-size: cover;
 }
 
 .card-wim-content {
-  background-color: #363c51;
+  background-color: #01283c;
   border-radius: 1rem;
   max-width: 400px;
   padding: 20px;
@@ -122,7 +124,7 @@ input {
   border-bottom: 2px solid #78788c;
   box-sizing: border-box;
   background: none;
-  color: black;
+  color: var(--dark-blue);
   font-family: "Oxygen", sans-serif;
   font-size: 16px;
   outline: none;
@@ -139,7 +141,7 @@ input:focus {
 
 .figure {
   background: white;
-  background: url('../images/breathing.jpg') no-repeat;
+  background: url("../images/breathing.jpg") no-repeat;
   background-size: cover;
   border: 3px solid black;
   display: grid;
@@ -171,7 +173,7 @@ input:focus {
 }
 
 .circle span {
-  color:white;
+  color: white;
   font-weight: 400;
 }
 
@@ -346,5 +348,14 @@ input:focus {
 @media only screen and (max-width: 600px) {
   .intro {
     flex-direction: column;
+  }
+
+  .counter {
+    padding: 0;
+  }
+
+  .wimhof {
+    padding: 0;
+    overflow: hidden;
   }
 }

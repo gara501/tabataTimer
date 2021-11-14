@@ -1,49 +1,115 @@
-import Badge, { badgeType } from "./badge";
+import { useTranslation } from "react-i18next";
+import m3 from "../images/m3.png";
+import muscles from "../images/muscles.png";
+import diap from "../images/diap.jpeg";
+import vertical from "../images/vertical.jpg";
+import horizontal from "../images/horizontal.jpg";
+
 import "./counter.css";
 
 function Intro() {
-  const wim = () => {};
-
-  const square = () => {};
+  const { t, i18n } = useTranslation();
 
   return (
     <div className="intro">
-      <div className="roundcard-wrapper">
-        <div className="roundcard-content">
-          <h2>Square Breathing</h2>
-          <Badge message="relaxation" type={badgeType.RELAXATION}></Badge>
-          <p className="section">
-            Square breathing is a type of breathwork that can shift your energy,
-            connect you more deeply with your body, calm your nervous system,
-            and decrease stress in your body.
+      <div className="block-section dark">
+        <div className="wrapper">
+          <div className="title-section">
+            <img src={m3} alt="" />
+            <h2 className="m-b-text">{t("intro.title")}</h2>
+          </div>
+          <p>
+            {t("intro.p1")}{" "}
+            <a
+              className="link"
+              href="https://www.kenhub.com/en/library/anatomy/anatomy-of-breathing"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t("intro.p2")}
+            </a>
           </p>
+          <p>{t("intro.p3")}</p>
+          <figure className="ext-image">
+            <img src={muscles} alt="" />
+            <figcaption>
+              Fig.1 - {t("intro.imgfrom")} MSD Manual consumer version
+            </figcaption>
+          </figure>
         </div>
       </div>
-      <div className="roundcard-wrapper">
-        <div className="roundcard-content">
-          <a className="title" href="#wim">
-            Wim Hof Method
-          </a>
-          <Badge message="activation" type={badgeType.ACTIVATION}></Badge>
-          <p className="section">
-            THE WIM HOF METHOD CAN BE DEFINED BY ITS SIMPLE, EASY-TO-APPLY
-            APPROACH AND ITS STRONG SCIENTIFIC FOUNDATION. IT’S A PRACTICAL WAY
-            TO BECOME HAPPIER, HEALTHIER AND STRONGER..
-          </p>
+      <div className="block-section">
+        <div className="wrapper">
+          <h3 className="m-text">{t("intro.title2")}</h3>
+          <p>{t("intro.p4")}</p>
+          <figure className="ext-image">
+            <img className="resized-image" src={vertical} alt="" />
+            <figcaption>
+              Fig.2 - {t("intro.imgfrom")}
+              https://www.artofmanliness.com/health-fitness/health/how-to-breathe/.
+            </figcaption>
+          </figure>
+          <p>{t("intro.p5")}</p>
+          <figure className="ext-image">
+            <img className="resized-image" src={horizontal} alt="" />
+            <figcaption>
+              Fig.3 - {t("intro.imgfrom")}
+              https://www.artofmanliness.com/health-fitness/health/how-to-breathe/.
+            </figcaption>
+          </figure>
         </div>
       </div>
+      <div className="block-section dark">
+        <div className="wrapper">
+          <h3 className="m-text">{t("intro.title3")}</h3>
+          <p>{t("intro.p6")}</p>
+          <figure className="ext-image">
+            <img className="image-ref" src={diap} alt="" />
+            <figcaption>
+              Fig.4 - {t("intro.imgfrom")} https://www.physio-pedia.com/.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+      <div className="block-section">
+        <div className="wrapper">
+          <h3 className="m-text">{t("intro.title4")}</h3>
+          <p>
+            {t("intro.p7")}
+            <ul className="list m-text">
+              <li>{t("intro.list1.li1")}</li>
+              <li>{t("intro.list1.li2")}</li>
+              <li>{t("intro.list1.li3")}</li>
+              <li>{t("intro.list1.li4")}</li>
+              <li>{t("intro.list1.li5")}</li>
+            </ul>
+          </p>
+          <p className="m-text">{t("intro.p8")}</p>
+          <p>{t("intro.p9")}</p>
+        </div>
+      </div>
+      <div className="block-section dark">
+        <div className="wrapper">
+          <h3 className="m-text">Benefits</h3>
+          <p>{t("intro.p10")}</p>
+          <ul className="list m-text">
+            <li>{t("intro.list2.li1")}</li>
+            <li>{t("intro.list2.li2")}</li>
+            <li>{t("intro.list2.li3")}</li>
+            <li>{t("intro.list2.li4")}</li>
+            <li>{t("intro.list2.li5")}</li>
+            <li>{t("intro.list2.li6")}</li>
+          </ul>
+        </div>
+      </div>
+      <div className="block-section">
+        <div className="wrapper">
+          <h3 className="m-text">{t("intro.title5")}</h3>
+          <p className="m-b-text">{t("intro.p11")}</p>
 
-      <div className="roundcard-wrapper">
-        <div className="roundcard-content">
-          <a className="title" href="#long">
-            1:2 Breathing
-          </a>
-          <Badge message="relaxation" type={badgeType.RELAXATION}></Badge>
-          <p className="section">
-            All you do is to double your exhale. That means that your exhale is
-            twice as long as your inhale. If you inhale for 4 seconds, your
-            exhalation will be 8 seconds.{" "}
-          </p>
+          <p className="m-b-text">{t("intro.p12")}</p>
+
+          <p className="m-b-text">{t("intro.p13")}</p>
         </div>
       </div>
     </div>

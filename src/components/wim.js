@@ -1,6 +1,7 @@
 import "./counter.css";
 import { useRef, useEffect, useState } from "react";
 import { useTimer } from "../components/timer";
+import { useTranslation } from "react-i18next";
 import { gsap } from "gsap";
 
 const states = {
@@ -10,6 +11,7 @@ const states = {
 };
 
 function Wim({ title }) {
+  const { t, i18n } = useTranslation();
   let timeline = gsap.timeline();
   const pointerElement = useRef(null);
   const counterElement = useRef(null);
@@ -110,32 +112,32 @@ function Wim({ title }) {
             {currentState === states.HOLD && (
               <>
                 <div className="card-section">
-                  <p>BreathHold Time</p>
+                  <p>{t("wim.sim5")}</p>
                   <h4 className="hold-time m-b-text">{breathTime}</h4>
                 </div>
                 <button className="btn secondary" onClick={stopBreathHold}>
-                  Stop BreathHold
+                  {t("wim.sim6")}
                 </button>
               </>
             )}
             {currentState === states.FULLHOLD && (
               <div className="card-section">
-                <p>Full Inhale and Hold!</p>
+                <p>{t("wim.sim7")}</p>
                 <h4 className="hold-time m-b-text">{holdTime}</h4>
               </div>
             )}
             <div className="input-block">
-              <label htmlFor="sets">Breaths before retention</label>
+              <label htmlFor="sets">{t("wim.sim1")}</label>
               <input
                 id="sets"
                 type="number"
                 name="sets"
                 onChange={changeBreaths}
-                placeholder="30 breaths"
+                placeholder="30"
               ></input>
             </div>
             <div className="input-block">
-              <label htmlFor="speed">Breathing Speed</label>
+              <label htmlFor="speed">{t("wim.sim2")}</label>
 
               <div className="speed-block">
                 <div class="switch-button">
@@ -143,7 +145,7 @@ function Wim({ title }) {
                     className="switch-button-checkbox"
                     onChange={changeSpeed}
                     type="checkbox"
-                    data-value="2"
+                    data-value="1"
                   ></input>
                   <label className="switch-button-label" htmlFor="">
                     <span className="switch-button-label-span">Normal</span>

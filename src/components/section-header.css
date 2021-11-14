@@ -1,0 +1,29 @@
+.section-header {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 100px;
+  position: relative;
+  width: 100%;
+}
+
+.section-header-content {
+  background: white;
+  box-shadow: 2px 2px 20px black;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  position: relative;
+  bottom: -100px;
+  width: 80%;
+}
+
+.section-header.s-square {
+  background: url("../images/med2.jpeg") no-repeat;
+  background-size: cover;
+}
+
+.section-header.s-double {
+  background: url("../images/bg.jpeg") no-repeat;
+  background-size: cover;
+}
