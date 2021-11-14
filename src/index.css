@@ -71,6 +71,12 @@ a {
   width: 100%;
 }
 
+.disclaimer {
+  color: var(--bg-color-primary);
+  border: 2px dashed white;
+  padding: 20px;
+}
+
 .intro {
   display: flex;
   flex-direction: column;
