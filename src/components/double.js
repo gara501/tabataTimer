@@ -1,8 +1,10 @@
 import { useRef, useState } from "react";
 import { gsap } from "gsap";
+import { useTranslation } from "react-i18next";
 import "./double.css";
 
 function Double({ title }) {
+  const { t, i18n } = useTranslation();
   const [time, setTime] = useState(4);
   const [sets, setSets] = useState(1);
   const pointerElement = useRef(null);
@@ -66,23 +68,23 @@ function Double({ title }) {
       </div>
       <div className="options">
         <div className="input-block">
-          <label htmlFor="sets">Sets</label>
+          <label htmlFor="sets">{t("square.simlb1")}</label>
           <input
             id="sets"
             type="number"
             name="sets"
-            placeholder="Set number"
+            placeholder={t("square.simf1")}
             ref={setsElement}
             onChange={changeSets}
           ></input>
         </div>
         <div className="input-block">
-          <label htmlFor="time">Breathing Time</label>
+          <label htmlFor="time">{t("square.simlb2")}</label>
           <input
             id="time"
             type="number"
             name="time"
-            placeholder="Set seconds"
+            placeholder={t("square.simf2")}
             ref={timeElement}
             onChange={changeTime}
           ></input>

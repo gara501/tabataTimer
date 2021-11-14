@@ -1,8 +1,10 @@
 import "./counter.css";
 import { useRef } from "react";
 import { gsap } from "gsap";
+import { useTranslation } from "react-i18next";
 
 function Counter({ title }) {
+  const { t, i18n } = useTranslation();
   const pointerElement = useRef(null);
   const setsElement = useRef(null);
   const timeElement = useRef(null);
@@ -69,22 +71,22 @@ function Counter({ title }) {
       </div>
       <div className="options">
         <div className="input-block">
-          <label htmlFor="sets">Breaths</label>
+          <label htmlFor="sets">{t("square.simlb1")}</label>
           <input
             id="sets"
             type="number"
             name="sets"
-            placeholder="Set number"
+            placeholder={t("square.simf1")}
             ref={setsElement}
           ></input>
         </div>
         <div className="input-block">
-          <label htmlFor="time">Breathing Speed</label>
+          <label htmlFor="time">{t("square.simlb2")}</label>
           <input
             id="time"
             type="number"
             name="time"
-            placeholder="Set seconds"
+            placeholder={t("square.simf2")}
             ref={timeElement}
           ></input>
         </div>
